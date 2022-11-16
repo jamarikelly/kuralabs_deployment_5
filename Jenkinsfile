@@ -1,7 +1,12 @@
 pipeline {
-    agent any
-    stages {
-        stage('Build') {
+	pipeline {
+  		agent any
+		environment {
+    		DOCKERHUB_CREDENTIALS=credentials('dockerhub')
+ 	 }
+	agent any
+   	 stages {
+     	   stage('Build') {
             steps {
                 sh '''#!/bin/bash
                 python3 -m venv test3
