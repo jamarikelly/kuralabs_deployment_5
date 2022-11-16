@@ -38,7 +38,7 @@ pipeline {
                 label 'dockerDeploy'
             }
             steps {
-                sh 'sudo docker-compose build'
+                sh 'sudo docker compose build'
             }
         }
         stage('Push to Dockerhub') {
