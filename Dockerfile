@@ -5,4 +5,4 @@ WORKDIR kuralabs_deployment_4
 RUN pip install -U pip
 RUN pip install -r "requirements.txt"
 EXPOSE 5000
-ENTRYPOINT ["python3", "application.py"]
+CMD ["python3", "application.py"]
