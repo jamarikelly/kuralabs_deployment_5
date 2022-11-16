@@ -39,7 +39,7 @@ pipeline {
        steps {
          sh '''#!/bin/bash
          docker build -t jamarik/url-shortener "https://github.com/jamarikelly/kuralabs_deployment_5/blob/main/Dockerfile" 
-         docker push jamarik
+         docker push jamarik//url-shortener
          '''
        }
      }
