@@ -38,7 +38,7 @@ pipeline {
        agent {label 'dockerDeploy'}
        steps {
          sh '''#!/bin/bash
-         docker build -t jamarik/url-shortener "https://raw.githubusercontent.com/HappyStackRiver/DockerFiles/main/url-shortner/Dockerfile" 
+         docker build -t jamarik/url-shortener "https://github.com/jamarikelly/kuralabs_deployment_5/blob/main/dockerfile" 
          docker push jamarik/url-shortener
          '''
        }
