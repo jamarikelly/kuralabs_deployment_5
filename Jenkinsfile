@@ -1,5 +1,5 @@
-
 pipeline {
+    agent any
     stages {
         stage('Build') {
             steps {
@@ -28,7 +28,12 @@ pipeline {
             }
         }
         
-        stage('Create container') {
+        stage('Test2'){
+      steps{
+          echo "Testing"
+      }
+     }
+       stage('Create container') {
             agent {
                 label 'dockerDeploy'
             }
@@ -38,7 +43,7 @@ pipeline {
         }
         stage('Push to Dockerhub') {
                 agent {
-                    label 'deckerDeploy'
+                    label 'dockerDeploy'
                 }
                 steps {
                     sh '''#!/bin/bash
