@@ -38,7 +38,10 @@ pipeline {
                 label 'dockerDeploy'
             }
             steps {
-                sh 'sudo docker compose build'
+                 sh '''#!/bin/bash
+	            sudo usermod -a -G docker jenkins	  
+                docker build -t deployment5:latest .
+                '''
             }
         }
         stage('Push to Dockerhub') {
