@@ -48,7 +48,7 @@ pipeline {
                     sh '''#!/bin/bash
                     sudo docker login -u $DOCKERHUB_CREDENTIALS_USR -p $DOCKERHUB_CREDENTIALS_PSW
                     sudo docker images
-                    sudo docker tag url-shortener_main_nginx:latest svmckinley/d5_nginx:latest
+                    sudo docker tag url-shortener_main_nginx:latest jamarik/d5_nginx:latest
                     sudo docker tag url-shortener_main_gunicorn-flask:latest jamarik/d5_gunicorn-pythonflask:latest
                     sudo docker push jamarik/d5_nginx:latest
                     sudo docker push jamarik/d5_gunicorn-pythonflask:latest
