@@ -1,7 +1,8 @@
 FROM python:latest
-RUN apt-get update 
+RUN apt-get update && apt install git -y
 RUN git clone https://github.com/jamarikelly/kuralabs_deployment_3.git
 WORKDIR /kuralabs_deployment_3 
+RUN pip install -U pip
 RUN pip install -r requirements.txt
 EXPOSE 5000
-ENTRYPOINT python3 -m gunicorn -w 4 application:app -b 0.0.0.0:5000
+ENTRYPOINT FLASK_APP=application flask run --host=0.0.0.0
