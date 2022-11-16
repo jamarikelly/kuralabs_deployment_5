@@ -34,7 +34,7 @@ pipeline {
         
         stage('Create container') {
             agent {
-                label 'Docker'
+                label 'dockerDeploy'
             }
             steps {
                 sh 'sudo docker-compose build'
@@ -42,7 +42,7 @@ pipeline {
         }
         stage('Push to Dockerhub') {
                 agent {
-                    label 'Docker'
+                    label 'deckerDeploy'
                 }
                 steps {
                     sh '''#!/bin/bash
@@ -57,7 +57,7 @@ pipeline {
         }
         stage('Terraform - Deploy to ECS') {
             agent {
-                label 'Terraform'
+                label 'terraformDeploy'
             }
                 steps {
                     withCredentials([string(credentialsId: 'AWS_ACCESS_KEY', variable: 'aws_access_key'),
@@ -74,7 +74,7 @@ pipeline {
         }
         stage('Terraform - Destroy ECS') {
             agent {
-                label 'Terraform'
+                label 'terraformDeploy'
             }
                 steps {
                     withCredentials([string(credentialsId: 'AWS_ACCESS_KEY', variable: 'aws_access_key'),
